@@ -1,0 +1,123 @@
+<style>
+
+    .container {
+        display: grid; /* Use grid layout */
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        gap: 20px; /* Gap between elements */
+        justify-content: center; /* Center content horizontally */
+        margin-top: 50px; /* Add some top margin */
+    }
+
+    /* Style for individual frames */
+    .frame {
+        background-color: #f2f2f2; /* Background color */
+        padding: 20px; /* Padding */
+        border: 1px solid #ccc; /* Border */
+        text-align: center; /* Center align text */
+    }
+
+    .frame h4 {
+        margin-bottom: 10px; /* Add some bottom margin to h4 */
+    }
+
+    .frame button {
+        margin-top: 10px; /* Add some top margin to button */
+    }
+    /* Define styles for the welcome message */
+    .welcome-message {
+        background-color: #f2f2f2; /* Background color */
+        border: 1px solid #ccc; /* Border */
+        padding: 20px; /* Padding */
+        margin-bottom: 20px; /* Bottom margin */
+        text-align: center; /* Center align text */
+    }
+
+
+
+    footer {
+        background-color: #f2f2f2; /* Background color */
+        border-top: 1px solid #ccc; /* Border */
+        padding: 20px; /* Padding */
+        text-align: center; /* Center align text */
+        position: fixed; /* Fixed positioning */
+        bottom: 0; /* Align to bottom */
+        width: 100%; /* Full width */
+    }
+
+    footer button {
+        margin-top: 10px; /* Add some top margin to button */
+    }
+
+    h5
+    {
+        color: rgb(33, 53, 12);
+    }
+</style>
+
+
+{% extends 'dummy.html' %}
+
+
+
+
+{% block title %}
+    <title>Home Page</title>
+
+{% endblock %}
+
+
+
+
+{% block body_block %}
+
+
+<div class="welcome-message">
+    <h1>Welcome to here for checking the weather for your city</h1>
+</div>
+
+
+
+{% if username %}
+
+<div>
+<h5>HEY.......mr/ms {{username}}To Check whether details<a href="{% url 'search' %}">Click Here.....</a></h5>
+
+</div>
+
+<footer>
+    <button type="button" class="btn btn-danger"> <a href="{% url 'user_logout' %}">Logout</a> </button>
+</footer>
+{% else %}
+
+<!--<div id="register">
+    <h4>if you are not a user then please register here</h4>
+    <button><a href="{% url 'registration' %}">REGISTER</a></button>
+</div>
+
+<div><h4>if you are a user then login here</h4>
+    <button> <a href="{% url 'user_login' %}">user_login</a></button>
+</div>-->
+
+<div class="container">
+    <div class="frame">
+        <h4>If you are not a user then please register here</h4>
+        <button><a href="{% url 'registration' %}">REGISTER</a></button>
+    </div>
+
+    <div class="frame">
+        <h4>If you are a user then login here</h4>
+        <button><a href="{% url 'user_login' %}">Login</a></button>
+    </div>
+</div>
+
+
+<footer>
+    <div style="text-align: center;">
+        CHECK HERE ALL THE<a href="{% url 'all_history' %}" style="display: inline-block;">HISTORY</a>
+    </div>
+    
+</footer>
+
+{% endif %}
+
+{% endblock %}

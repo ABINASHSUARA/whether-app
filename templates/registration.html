@@ -1,0 +1,54 @@
+<style>
+    .message {
+        background-color: #f2f2f2; /* Background color */
+        border: 1px solid #ccc; /* Border */
+        padding: 20px; /* Padding */
+        margin-bottom: 20px; /* Bottom margin */
+        text-align: center; /* Center align text */
+    }
+
+
+
+</style>
+{% extends 'dummy.html' %}
+
+{% block title %}
+    <title>Registration Page</title>
+
+{% endblock %}
+
+
+{% block body_block %}
+
+
+<div class="message">
+    <h1>Fill the form to Register</h1>
+</div>
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Registration Form</h5>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ uf.as_p }}
+                        {{ pf.as_p }}
+                        <div class="text-center">
+                            <input type="submit" value="Register" class="btn btn-dark">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

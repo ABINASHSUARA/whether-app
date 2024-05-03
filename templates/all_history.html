@@ -1,0 +1,53 @@
+<style>
+    .message {
+        background-color: #f2f2f2; /* Background color */
+        border: 1px solid #ccc; /* Border */
+        padding: 20px; /* Padding */
+        margin-bottom: 20px; /* Bottom margin */
+        text-align: center; /* Center align text */
+    }
+
+
+
+</style>
+
+
+
+
+
+
+{% extends 'dummy.html' %}
+
+{% block title %}
+    <title>Home Page</title>
+
+{% endblock %}
+
+
+{% block body_block %}
+<div class="message">
+    <h1>All Searching History</h1>
+</div>
+    <table border="3px">
+        <tr><th>username</th>
+            <th>city</th>
+            <th>temperature</th>
+            <th>humidity</th>
+            <th>weather</th>
+            <th>speed</th>
+            <th>timestamp</th>
+        </tr>
+{% for obj in LWO %}
+        <tr><th>{{obj.username}}</th>
+            <th>{{obj.city}}</th>
+            <th>{{obj.temperature}}</th>
+            <th>{{obj.humidity}}</th>
+            <th>{{obj.weather}}</th>
+            <th>{{obj.speed}}</th>
+            <th>{{obj.timestamp}}</th>
+        </tr>
+{% endfor %}
+
+    </table>
+
+{% endblock %}

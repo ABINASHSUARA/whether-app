@@ -1,0 +1,62 @@
+<style>
+    .message {
+        background-color: #f2f2f2; /* Background color */
+        border: 1px solid #ccc; /* Border */
+        padding: 20px; /* Padding */
+        margin-bottom: 20px; /* Bottom margin */
+        text-align: center; /* Center align text */
+    }
+</style>
+{% extends 'dummy.html' %}
+
+{% block title %}
+    <title>Login Page</title>
+
+{% endblock %}
+
+
+{% block body_block %}
+<div class="message">
+    <h1>fill the deatils to Login</h1>
+</div>
+
+
+<!--<form method="POST">
+    {% csrf_token %}
+    <label for="un">UserName:</label>
+    <input type="text" name="un" id="un"><br><br>
+
+    <label for="pw">PassWord</label>
+    <input type="password" name="pw" id="pw"><br><br>
+
+    <input type="submit" value="user_login" class="btn btn-primary">
+</form>-->
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+               
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="un">Username:</label>
+                            <input type="text" name="un" id="un" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="pw">Password:</label>
+                            <input type="password" name="pw" id="pw" class="form-control">
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" value="Login" class="btn btn-warning">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
